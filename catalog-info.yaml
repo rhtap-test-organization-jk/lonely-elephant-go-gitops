@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: lonely-elephant-go-gitops
+  description: This is GitOps manifest for lonely-elephant-go   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-name: lonely-elephant-go
+    janus-idp.io/tekton: lonely-elephant-go 
+    backstage.io/kubernetes-id: lonely-elephant-go 
+    backstage.io/techdocs-ref: dir:. 
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:lonely-elephant-go
